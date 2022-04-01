@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor</title>
+</head>
+<body style="background-color: bisque;">
+    <h1 style="text-align: center;">حالة الاجهزة بالمحل</h1>
+    <div style="display: grid; grid-template-columns: repeat(5,19%); margin: auto; width: fit-content;">
+    {% for x in s %}
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 15px; width: 200px; background-color: #{{co[x.S_status]}}; height: 200px;">
+            <div style="width: fit-content; height: fit-content;">
+                    <img src="{{url_for('static' , filename='images/')}}{{x.S_icon}}" alt="">
+            </div>
+            <p style="color: white;">{{x.S_name}}</p>
+            <p style="color: white;">{{x.S_status}}</p>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>
